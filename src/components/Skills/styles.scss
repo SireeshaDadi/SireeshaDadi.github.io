@@ -1,0 +1,32 @@
+
+
+export const styles  {
+
+$spacing: 3rem; 
+ 
+.gridItem {
+  margin-bottom: $spacing;
+}
+
+.title {
+  margin-top: $spacing;
+}
+
+.gridContainer {
+  margin-top: 4rem;
+}
+
+.illustrationContainer {
+  margin: auto;
+}
+
+.illustration {
+  width: 80%;
+  height: auto;
+
+  @media (max-width: medium) {
+    width: 100%;
+  }
+}
+}
+
