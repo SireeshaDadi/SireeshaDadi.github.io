@@ -1,5 +1,8 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import Typical from 'react-typical';
+import intro from '../../assets/intro.png';
+
 
 
 export const Intro: React.FC = (): JSX.Element => {
@@ -7,7 +10,7 @@ export const Intro: React.FC = (): JSX.Element => {
 	const title: string = 'Sireesha Dadi';
 
 	return (
-		<div>
+		<Box>
       <h1>Hello! I am Sireesha!</h1>
 			<Typical
         steps={[
@@ -20,7 +23,13 @@ export const Intro: React.FC = (): JSX.Element => {
               ]}
               loop={Infinity}
         />
-		</div>
+        
+        <img
+               height={600}
+                src={intro}
+                alt="Intro illustratopm"
+              />
+		</Box>
 
 	);
 };

@@ -15,7 +15,7 @@ type iconsArray = {
 };
 
 
-function Skills() {
+export const Skills = (): JSX.Element => {
   const iconsArray: iconsArray[] = useMemo(
     () => [
       logos.typescript,
@@ -76,14 +76,12 @@ function Skills() {
               <div>
                 <Grid
                   container
-               //   className={classes.gridContainer}
                   ref={intersectionRef}
                 >
                   {trail.map(({ transform }, index) => (
                     <Grid
                       key={iconsArray[index].label}
                       item
-                //      className={classes.gridItem}
                       md={2}
                       xs={3}
                     >
