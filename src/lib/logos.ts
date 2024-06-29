@@ -1,36 +1,31 @@
+import { IconProps } from "../components/util/Icon/Icon";
+
 type logoNames =
   | "apollo"
   | "graphql"
   | "nestjs"
+  |"angular"
   | "react"
   | "bootstrap"
-  | "chartjs"
-  | "expressjs"
   | "git"
   | "github"
   | "materialui"
   | "mongodb"
-  | "nextjs"
+  | "java"
   | "typescript"
   | "nodejs"
   | "javascript"
   | "cypress";
 
-type Logos = {
-  [k in logoNames]: {
-    label: string;
-    logo: string;
-    spin?: boolean;
-    invert?: boolean;
-  };
+export type Logos = {
+  [k in logoNames]: IconProps;
 };
 
-const logos: Logos = {
+export const logos: Logos = {
   apollo: {
     label: "Apollo",
     logo: "/icons/apollo.svg",
     spin: false,
-    invert: true,
   },
   graphql: {
     label: "GraphQl",
@@ -42,6 +37,11 @@ const logos: Logos = {
     logo: "/icons/nestjs.svg",
     spin: false,
   },
+  angular: {
+    label: "Angular",
+    logo: "/icons/angular.svg",
+    spin: false,
+  },
   react: {
     label: "React",
     logo: "/icons/react.png",
@@ -51,14 +51,6 @@ const logos: Logos = {
     label: "Bootstrap",
     logo: "/icons/bootstrap.svg",
   },
-  chartjs: {
-    label: "Chart.js",
-    logo: "/icons/chartjs.svg",
-  },
-  expressjs: {
-    label: "Express.js",
-    logo: "/icons/expressjs.png",
-  },
   git: {
     label: "Git",
     logo: "/icons/git.svg",
@@ -66,7 +58,6 @@ const logos: Logos = {
   github: {
     label: "GitHub",
     logo: "/icons/github.svg",
-    invert: true,
   },
   materialui: {
     label: "Material-UI",
@@ -76,10 +67,9 @@ const logos: Logos = {
     label: "MongoDB",
     logo: "/icons/mongodb.svg",
   },
-  nextjs: {
-    label: "Next.js",
-    logo: "/icons/nextjs.svg",
-    invert: true,
+  java: {
+    label: "Java",
+    logo: "/icons/java.svg",
   },
 
   typescript: {

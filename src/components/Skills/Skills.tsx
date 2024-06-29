@@ -1,111 +1,65 @@
 import { useState, useRef, useEffect, useMemo } from "react";
-import { useTrail, animated as a } from "react-spring";
+import { useTrail, animated as a, SpringValue } from "react-spring";
 import { useIntersection } from "react-use";
-
 import {  Grid, Typography, Container, Toolbar, Box } from "@mui/material";
+import { Logos } from "../../lib/logos";
+import SkillIcon from "./SkillIcon";
 
-import Icon from "./Icon";
-import logos from "../../lib/logos";
 
-type iconsArray = {
-  label: string;
-  logo: any;
-  invert?: boolean;
-  spin?: boolean;
+export type Skill = {
+  logo: Logos[keyof Logos];
+  transform?: SpringValue<string>;
 };
 
+export type SkillProps = {
+  skills : Skill[];
+}
 
-export const Skills = (): JSX.Element => {
-  const iconsArray: iconsArray[] = useMemo(
-    () => [
-      logos.typescript,
-      logos.nodejs,
-      logos.react,
-      logos.mongodb,
-      logos.cypress,
-      logos.materialui,
-      logos.javascript,
-    ],
-    []
-  );
+
+const Skills: React.FC<SkillProps> = ({skills}) => {
+
 
   const intersectionRef = useRef(null);
-  const intersectionEnter = useIntersection(intersectionRef, {
+  const intersectionResult =  useIntersection(intersectionRef, {
     root: null,
     rootMargin: "0px",
     threshold: 0.3,
   });
-  const intersectionExit = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0,
-  });
 
-  const [toggle, setToggle] = useState(false);
+  const isEnteringView = intersectionResult?.isIntersecting ?? false;
 
-  const trail = useTrail(iconsArray.length, {
+  const [areSkillsVisible, setAreSkillsVisible] = useState(false);
+
+
+  const trail = useTrail(skills.length, {
     config: { mass: 1, tension: 375, friction: 25 },
-    trail: 400 / iconsArray.length,
-    transform: toggle ? "scale(1)" : "scale(0)",
+    trail: 400 / skills.length,
+    transform: areSkillsVisible ? "scale(1)" : "scale(0)",
     from: { transform: "scale(0)" },
-    reset: !toggle,
+    reset: !areSkillsVisible,
   });
 
   useEffect(() => {
-    if (intersectionEnter?.isIntersecting) {
-      setToggle(true);
-    }
-  }, [intersectionEnter]);
-
-  useEffect(() => {
-    if (!intersectionExit?.isIntersecting) {
-      setToggle(false);
-    }
-  }, [intersectionExit]);
+    setAreSkillsVisible(isEnteringView);
+  }, [isEnteringView]);
 
   return (
     <Box>
       <Toolbar id="skills" />
       <Container component="section">
         <Grid container>
-          <Box>
-            <Grid>
-              <h3>
-                My Tech Stack
-              </h3>
-              <div>
-                <Grid
-                  container
-                  ref={intersectionRef}
-                >
-                  {trail.map(({ transform }, index) => (
-                    <Grid
-                      key={iconsArray[index].label}
-                      item
-                      md={2}
-                      xs={3}
-                    >
-                      <a.div
-                        key={index}
-                        style={{
-                          transform,
-                        }}
-                      >
-                        <a.div>
-                          <Icon
-                            label={iconsArray[index].label}
-                            logo={iconsArray[index].logo}
-                            spin={iconsArray[index].spin}
-                            invert={iconsArray[index].invert}
-                          ></Icon>
-                        </a.div>
-                      </a.div>
-                    </Grid>
-                  ))}
+          <Grid item xs={12}>
+            <Typography variant="h3" id="tech-stack">
+              My Tech Stack
+            </Typography>
+            <Grid container ref={intersectionRef}>
+              {trail.map(({ transform }, index) => (
+                <Grid key={skills[index].logo.label} item md={2} xs={3}>
+                  <SkillIcon skill={{ ...skills[index] }} />
                 </Grid>
-              </div>
+              ))}
             </Grid>
-          </Box>
+          </Grid>
         </Grid>
       </Container>
     </Box>
