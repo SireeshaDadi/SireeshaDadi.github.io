@@ -1,7 +1,8 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Typical from 'react-typical';
 import intro from '../../assets/intro.png';
+
 
 
 
@@ -25,27 +26,35 @@ export const Intro: React.FC = (): JSX.Element => {
         />
 
 
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} marginY={8}>
-          <Grid item xs={6}>
-            <Box ml={10} m={20}>
-            <Typography variant='subtitle1'>
-            9+ years deep in coding! I'm a full-stack developer (React, Java) conjuring innovative solutions. From sparkling clean code to seamless API connections,
-             I manage the entire SDLC and ensure top performance through testing (unit, integration, A/B, you name it!).
-             My Master's in CS with a twist (drone control with wearables!) showcases my passion for creative problem-solving.
-              </Typography>
-            </Box>
-             
-          </Grid>
-          <Grid item xs={6}>
-             
-        <img
-               height={600}
-                src={intro}
-                alt="Intro illustratopm"
-              />
-          </Grid>
+<Grid container spacing={2}>
+    {/* Grid item for text content */}
+    <Grid item xs={12} md={6}>
+      <Box sx={{ p: 2 }}>
+        <Typography variant='subtitle1'>
+          9+ years deep in coding! I'm a full-stack developer (React, Java) 
+          conjuring innovative solutions. From sparkling clean code to seamless API connections,
+           I manage the entire SDLC and ensure top performance through testing (unit, integration, A/B, you name it!). 
+           My Master's in CS with a twist (drone control with wearables!) showcases my passion for creative problem-solving.
+        </Typography>
+        <Box sx={{ mt: 2 }}>
+          <Button variant='contained'>Resume</Button>
+        </Box>
+      </Box>
+    </Grid>
 
-        </Grid>
+    {/* Grid item for the image */}
+    <Grid item xs={12} md={6}>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <img
+          style={{ height: 'auto', maxWidth: '100%' }}
+          src={intro}
+          alt="Introduction illustration"
+        />
+      </Box>
+    </Grid>
+  </Grid>
+
+        
        
 		</Box>
 

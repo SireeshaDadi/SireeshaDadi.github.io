@@ -1,10 +1,10 @@
 import React from "react";
 import SchoolIcon from '@mui/icons-material/School';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import { TimelineEvent } from "./components/PersonalTimeline/PersonalTimelineEvents";
-import { Skill } from "./components/Skills/Skills";
-import logos from "./lib/logos";
-import { PersonalTimelineData } from "./components/PersonalTimeline/PersonalTimeline";
+import { TimelineEvent } from "../components/PersonalTimeline/PersonalTimelineEvents";
+import { Skill } from "../components/Skills/Skills";
+import logos from "./logos";
+import { PersonalTimelineData } from "../components/PersonalTimeline/PersonalTimeline";
 
 
 const MySkills: Skill[] = [
