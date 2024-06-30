@@ -7,7 +7,7 @@ import logos from "./lib/logos";
 import { PersonalTimelineData } from "./components/PersonalTimeline/PersonalTimeline";
 
 
-export const MySkills: Skill[] = [
+const MySkills: Skill[] = [
   {  logo: logos.typescript },
   {  logo: logos.react },
   {logo:logos.java},
@@ -19,8 +19,7 @@ export const MySkills: Skill[] = [
   {logo:logos.angular}
 ];
 
-
-export const EduEvents : TimelineEvent[] = [
+const EduEvents : TimelineEvent[] = [
   {
     id: 1,
     date: "2011-2015",
@@ -38,7 +37,7 @@ export const EduEvents : TimelineEvent[] = [
   }
 ];
 
-export const WorkExpEvents : TimelineEvent[] = [
+const WorkExpEvents : TimelineEvent[] = [
     
     {
       id: 1,
@@ -64,14 +63,14 @@ export const WorkExpEvents : TimelineEvent[] = [
     },
   ];
 
-  const WorkExp : PersonalTimelineData = {
+const WorkExp : PersonalTimelineData = {
     events: WorkExpEvents,
     position:'alternate',
     title: 'Work Experience'
    
   }
 
-  const Education : PersonalTimelineData= {
+const Education : PersonalTimelineData= {
     events: EduEvents,
     position:'right',
     title: 'Education'
