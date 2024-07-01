@@ -5,7 +5,22 @@ import { TimelineEvent } from "../components/PersonalTimeline/PersonalTimelineEv
 import { Skill } from "../components/Skills/Skills";
 import logos from "./logos";
 import { PersonalTimelineData } from "../components/PersonalTimeline/PersonalTimeline";
+import { IntroData } from "../components/Intro/Intro";
 
+
+
+const Intro : IntroData ={
+  title:"Sireesha Dadi",
+  intro:" 9+ years deep in coding! I'm a full-stack developer (React, Java) conjuring innovative solutions. From sparkling clean code to seamless API connections, I manage the entire SDLC and ensure top performance through testing (unit, integration, A/B, you name it!). My Master's in CS with a twist (drone control with wearables!) showcases my passion for creative problem-solving.",
+  roles: [
+    "Front End Developer",
+      1000,
+    "Full Stack Developer",
+      1000,
+    "Mobile Developer",
+      1000,
+      ]
+}
 
 const MySkills: Skill[] = [
   {  logo: logos.typescript },
@@ -78,6 +93,7 @@ const Education : PersonalTimelineData= {
 
 
 export const PersonalDetails = {
+  Intro: Intro,
   Skills : MySkills,
   WorkExp : WorkExp,
   Education: Education,

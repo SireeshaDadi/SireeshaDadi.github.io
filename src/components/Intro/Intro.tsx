@@ -1,28 +1,30 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Typical from 'react-typical';
-import intro from '../../assets/intro.png';
+import introImage from '../../assets/introImage.png';
 
 
+export type IntroData = {
+  title: string;
+  roles:Array<string | number>;
+  intro: string;
+}
+
+export type IntroProps = {
+  data : IntroData;
+}
 
 
-export const Intro: React.FC = (): JSX.Element => {
+export const Intro: React.FC<IntroProps> = ({data}): JSX.Element => {
 
-	const title: string = 'Sireesha Dadi';
+	const {title, roles, intro} = data;
 
 	return (
 		<Box>
-      <h1>Hello! I am Sireesha!</h1>
+      <h1>Hello! I am {title}!</h1>
 			<Typical
-        steps={[
-            "Front End Developer",
-              1000,
-            "Full Stack Developer",
-              1000,
-            "Mobile Developer",
-              1000,
-              ]}
-              loop={Infinity}
+        steps={roles}
+        loop={Infinity}
         />
 
 
@@ -31,10 +33,7 @@ export const Intro: React.FC = (): JSX.Element => {
     <Grid item xs={12} md={6}>
       <Box sx={{ p: 2 }}>
         <Typography variant='subtitle1'>
-          9+ years deep in coding! I'm a full-stack developer (React, Java) 
-          conjuring innovative solutions. From sparkling clean code to seamless API connections,
-           I manage the entire SDLC and ensure top performance through testing (unit, integration, A/B, you name it!). 
-           My Master's in CS with a twist (drone control with wearables!) showcases my passion for creative problem-solving.
+         {intro}
         </Typography>
         <Box sx={{ mt: 2 }}>
           <Button variant='contained'>Resume</Button>
@@ -47,15 +46,13 @@ export const Intro: React.FC = (): JSX.Element => {
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <img
           style={{ height: 'auto', maxWidth: '100%' }}
-          src={intro}
+          src={introImage}
           alt="Introduction illustration"
         />
       </Box>
     </Grid>
   </Grid>
-
-        
-       
+   
 		</Box>
 
 	);

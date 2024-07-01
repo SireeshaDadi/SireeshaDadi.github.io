@@ -8,14 +8,12 @@ export type PersonalTimelineData = {
   position?: 'left' | 'right' | 'alternate'; 
 }
 
-
-
-type PersonalTimelineProps = {
+export type PersonalTimelineProps = {
     data : PersonalTimelineData
 };
 
 
-const PersonalTimeline: React.FC<PersonalTimelineProps> = ({data}) => {
+export const PersonalTimeline: React.FC<PersonalTimelineProps> = ({data}) => {
   const {events, title, position} = data;
 
   return (

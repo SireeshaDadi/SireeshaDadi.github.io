@@ -8,9 +8,7 @@ import {
   TimelineContent,
   TimelineDot,
   TimelineOppositeContent, 
-  TimelineProps
 } from '@mui/lab';
-
 import { Typography, Box } from '@mui/material';
 
 export type TimelineEvent = {
@@ -23,7 +21,7 @@ export type TimelineEvent = {
   };
 
 
-type PersonalTimelineEventsProps = {
+export type PersonalTimelineEventsProps = {
     events: TimelineEvent[];
     position?: 'left' | 'right' | 'alternate'; 
   };
@@ -35,7 +33,7 @@ type PersonalTimelineEventsProps = {
         <Timeline position={position}>
           {events.map((event) => (
             <TimelineItem key={event.id}>
-              <TimelineOppositeContent variant="body2" color="text.secondary">
+              <TimelineOppositeContent variant="body2">
                 {event.date}
               </TimelineOppositeContent>
               <TimelineSeparator>

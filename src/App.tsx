@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Intro/>
+        <Intro data={PersonalDetails.Intro} />
 
         <Skills skills={PersonalDetails.Skills}/>
 
