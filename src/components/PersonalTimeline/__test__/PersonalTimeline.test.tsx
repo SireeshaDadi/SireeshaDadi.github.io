@@ -26,13 +26,11 @@ describe('PersonalTimeline component', () => {
     };
     const { getByTestId } = render(<PersonalTimeline {...props} />);
     
-    // Check if PersonalTimelineEvents component is rendered with correct props
     const personalTimelineEvents = getByTestId('personal-timeline-events');
     expect(personalTimelineEvents).toBeInTheDocument();
     expect(personalTimelineEvents).toHaveAttribute('position', mockData.position);
     
-    // Check if events are passed correctly to PersonalTimelineEvents
-    const event1Title = getByTestId('timeline-event-title-1'); // Adjust test IDs based on your implementation
+    const event1Title = getByTestId('timeline-event-title-1');
     expect(event1Title).toBeInTheDocument();
     expect(event1Title.textContent).toEqual(mockData.events[0].title);
     

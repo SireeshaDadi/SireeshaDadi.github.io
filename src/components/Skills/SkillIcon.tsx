@@ -9,7 +9,7 @@ interface SkillIconProps {
   }
 
 
-  const SkillIcon: FC<SkillIconProps> = ({ skill }) => {
+const SkillIcon: FC<SkillIconProps> = ({ skill }) => {
 
     const { label, logo, spin, invert } = skill.logo;
   
