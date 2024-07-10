@@ -2,11 +2,11 @@ import React from 'react';
 import { Typography, Box } from '@mui/material';
 import { PersonalTimelineEvents, TimelineEvent } from './PersonalTimelineEvents';
 
-export type PersonalTimelineData = {
+export interface PersonalTimelineData  {
   events: TimelineEvent[];
   title: string;
   position?: 'left' | 'right' | 'alternate'; 
-}
+} ;
 
 export type PersonalTimelineProps = {
     data : PersonalTimelineData

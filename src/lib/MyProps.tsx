@@ -3,7 +3,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
 import { TimelineEvent } from "../components/PersonalTimeline/PersonalTimelineEvents";
 import { Skill } from "../components/Skills/Skills";
-import logos from "./logos";
+import skillLogos from "./logos";
 import { PersonalTimelineData } from "../components/PersonalTimeline/PersonalTimeline";
 import { IntroData } from "../components/Intro/Intro";
 
@@ -23,15 +23,15 @@ const Intro : IntroData ={
 }
 
 const MySkills: Skill[] = [
-  {  logo: logos.typescript },
-  {  logo: logos.react },
-  {logo:logos.java},
-  {  logo: logos.nodejs },
-  { logo: logos.mongodb },
-  { logo: logos.cypress },
-  {  logo: logos.materialui },
-  {  logo: logos.javascript },
-  {logo:logos.angular}
+  {  logo: skillLogos.typescript },
+  {  logo: skillLogos.react },
+  {logo:skillLogos.java},
+  {  logo: skillLogos.nodejs },
+  { logo: skillLogos.mongodb },
+  { logo: skillLogos.cypress },
+  {  logo: skillLogos.materialui },
+  {  logo: skillLogos.javascript },
+  {logo:skillLogos.angular}
 ];
 
 const EduEvents : TimelineEvent[] = [

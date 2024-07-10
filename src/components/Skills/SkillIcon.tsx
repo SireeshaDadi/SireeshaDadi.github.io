@@ -11,12 +11,12 @@ interface SkillIconProps {
 
 const SkillIcon: FC<SkillIconProps> = ({ skill }) => {
 
-    const { label, logo, spin, invert } = skill.logo;
+    const { label, path, spin, invert } = skill.logo;
   
     return (
       <a.div style={{ transform : skill.transform as any}}>
         <a.div>
-          <Icon label={label} logo={logo} spin={spin} invert={invert} />
+          <Icon label={label} path={path} spin={spin} invert={invert} />
         </a.div>
       </a.div>
     );

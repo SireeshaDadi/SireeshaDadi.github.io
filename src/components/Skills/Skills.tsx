@@ -1,13 +1,13 @@
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTrail, animated as a, SpringValue } from "react-spring";
 import { useIntersection } from "react-use";
 import {  Grid, Typography, Container, Toolbar, Box } from "@mui/material";
-import { Logos } from "../../lib/logos";
+import { SkillIcons } from "../../lib/logos";
 import SkillIcon from "./SkillIcon";
 
 
-export type Skill = {
-  logo: Logos[keyof Logos];
+export interface Skill  {
+  logo: SkillIcons[keyof SkillIcons];
   transform?: SpringValue<string>;
 };
 
@@ -30,7 +30,6 @@ const Skills: React.FC<SkillProps> = ({skills}) => {
 
   const [areSkillsVisible, setAreSkillsVisible] = useState(false);
 
-
   const trail = useTrail(skills.length, {
     config: { mass: 1, tension: 375, friction: 25 },
     trail: 400 / skills.length,
@@ -45,6 +44,7 @@ const Skills: React.FC<SkillProps> = ({skills}) => {
 
   return (
     <Box>
+      
       <Toolbar id="skills" />
       <Container component="section">
         <Grid container>
@@ -52,9 +52,10 @@ const Skills: React.FC<SkillProps> = ({skills}) => {
             <Typography variant="h3" id="tech-stack">
               My Tech Stack
             </Typography>
+
             <Grid container ref={intersectionRef}>
               {trail.map(({ transform }, index) => (
-                <Grid key={skills[index].logo.label} item md={2} xs={3}>
+                <Grid key={skills[index].logo?.label} item md={2} xs={3}>
                   <SkillIcon skill={{ ...skills[index] }} />
                 </Grid>
               ))}

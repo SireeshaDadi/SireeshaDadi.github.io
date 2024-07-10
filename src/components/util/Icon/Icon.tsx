@@ -5,12 +5,13 @@ import  './styles.scss';
 
 export type IconProps = {
   label: string;
-  logo: any;
+  path?: string;
+  url?:string;
   invert?: boolean;
   spin?: boolean;
 };
 
-const Icon: React.FC<IconProps> = ({ label, logo, invert, spin }) => {
+const Icon: React.FC<IconProps> = ({ label, path, invert, spin }) => {
   const logoRef = useRef<HTMLImageElement | null>(null);
 
   const [props, set] = useSpring(() => ({
@@ -49,9 +50,9 @@ const Icon: React.FC<IconProps> = ({ label, logo, invert, spin }) => {
           style={{ transform: props.xys.interpolate(trans) }}
           height={100}
           width={100}
-          src={logo}
+          src={path}
           alt={label}
-          className={logo}
+          className={path}
         />
       </div>
     </Box>
